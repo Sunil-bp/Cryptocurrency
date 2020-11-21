@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h1>{{tittle}}</h1>
-      <button v-on:click = "refresh_data">{{this.$store.state.button_name}}</button>
+      <h1 class="title is-1">{{tittle}}</h1>
+      <!-- <button v-on:click = "refresh_data">{{this.$store.state.button_name}}</button> -->
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
     refresh_data: function(){
       console.log("[topbar][methods][refresh data ] sending signal to app to refresh data ");
       console.log(this.$store.state.table_len)
-      this.$store.dispatch('get_data_from_api')
-      console.log(this.$store.state.table_len)
+      // this.$store.dispatch('get_data_from_api')
+      // console.log(this.$store.state.table_len)
       this.button_name = "Refreshing .. "
       },
     }

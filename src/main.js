@@ -2,19 +2,22 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 import Vuex from 'vuex'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 
 Vue.config.productionTip = false
 
 //using  libs
 Vue.use(VueResource);
 Vue.use(Vuex);
+Vue.use(Buefy)
 
 
 export const bus = new Vue();
 
 const store = new Vuex.Store({
   state: {
-    data: {},
+    data: [],
     button_name : "Refresh",
     table_len : 10,
     error_status : false
@@ -30,7 +33,7 @@ const store = new Vuex.Store({
       },
     error_in_api (state){
       console.log("[main][mutation][error_in_api] api call was unsuccessful  ");
-      state.data = {}
+      state.data = []
       },
     refresh_button_load (state){
       console.log("[main][vuex][mutation][refresh_button_load]  setting to refresh  ");

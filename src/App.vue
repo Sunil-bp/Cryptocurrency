@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <topbar></topbar>
+    <maintable></maintable>
   </div>
 </template>
 
 <script>
 import topbar from './components/topbar.vue'
+import maintable from './components/maintable.vue'
 export default {
   name: 'App',
   components: {
-    topbar
+    topbar:topbar,
+    maintable:maintable
   },
   data: () => ({
 
@@ -36,9 +39,16 @@ export default {
     this.$http.get(baseURI)
     .then(response => {
       console.log("[app][method][get_data_from_api] success!")
-      console.log(response.data);
+      // console.log(response.data.data.coins);
       console.log("[app][method][get_data_from_api] updating data to component ");
-      this.$store.dispatch('set_api_data',response.data)
+      var list_data = []
+      for (var key in response.data.data.coins) {
+          var val = response.data.data.coins[key]
+          list_data.push(val)
+          // console.log(val);
+        }
+
+      this.$store.dispatch('set_api_data',list_data)
     })
     .catch(error => {
       console.log("[app][method][get_data_from_api] failed!")
