@@ -44,6 +44,6 @@
     "not dead"
   ],
   "scripts": {
-     "deploy": "node scripts/gh-pages-deploy.js"
+     "deploy": "node Scripts/gh-pages-deploy.js"
     }
 }
