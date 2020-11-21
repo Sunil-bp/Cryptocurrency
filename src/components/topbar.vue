@@ -2,6 +2,7 @@
   <div>
       <h1>{{tittle}}</h1>
       <p>{{data}}</p>
+      <p>{{this.$store.state.table_len}}</p>
       <button v-on:click = "refresh_data">{{button_name}}</button>
 
   </div>
@@ -46,6 +47,10 @@
       refresh_data: function(){
         console.log("[topbar][methods][refresh data ] sending signal to app to refresh data ");
         // window.location.href = '/profile/';
+        console.log(this.$store.state.table_len)
+        this.$store.commit('set_len',40)
+        console.log(this.$store.state.table_len)
+
         this.button_name = "Refreshing .. "
       },
     }
