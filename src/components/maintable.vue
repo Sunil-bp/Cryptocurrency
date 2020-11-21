@@ -55,15 +55,7 @@ export default {
       perPage : 10
     }
   },
-  created:function(){
-      console.log();
-  },
-  computed: {
-
-  },
-  methods:{
-
-    }
+  
   }
 </script>
 

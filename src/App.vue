@@ -14,21 +14,18 @@ export default {
     topbar:topbar,
     maintable:maintable
   },
-  data: () => ({
 
-
-  }),
   mounted: function () {
   window.setInterval(() => {
     console.log("[app][created] Getting api data on regular basis ");
     this.get_data_from_api("https://api.coinranking.com/v1/public/coins/?limit=100")
-  }, 1000*60)
-},
+    }, 1000*60)
+  },
+
   created: function(){
     console.log("[app][created] Checking getting api data ");
     this.get_data_from_api("https://api.coinranking.com/v1/public/coins/?limit=100")
   },
-
 
   methods:{
   get_data_from_api: function(url){
